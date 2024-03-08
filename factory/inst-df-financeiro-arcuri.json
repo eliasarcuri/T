@@ -1,0 +1,9 @@
+{
+	"name": "inst-df-financeiro-arcuri",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c304bbd5-b305-4a19-a6d6-1e4d28f3e9ac",
+		"tenantId": "3044fcb5-2d35-4636-9770-6c0604cbd639"
+	}
+}
