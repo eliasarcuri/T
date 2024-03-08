@@ -38,7 +38,8 @@
 		],
 		"variables": {
 			"datatime": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "@string(utcnow())"
 			}
 		},
 		"annotations": []
