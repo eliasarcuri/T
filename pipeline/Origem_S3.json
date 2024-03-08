@@ -36,6 +36,11 @@
 				]
 			}
 		],
+		"variables": {
+			"datatime": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
