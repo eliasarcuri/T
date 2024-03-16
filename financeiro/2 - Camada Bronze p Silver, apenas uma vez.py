@@ -1,12 +1,13 @@
 # Databricks notebook source
 # DBTITLE 1,Conferindo arquivos das pastas
-# MAGIC %fs ls dbfs:/mnt/financeiro/Bronze/
+# MAGIC %fs ls dbfs:/mnt/financeiro/bronze/
 
 # COMMAND ----------
 
 # DBTITLE 1,Leitura do arquivo
-df_recebimento = spark.read.parquet("dbfs:/mnt/financeiro/Bronze/RECEBIMENTO.parquet")
+df_recebimento = spark.read.parquet("dbfs:/mnt/financeiro/bronze/data_69e5bcf1-fe68-44ec-907c-10cb65a5b19f_ad35162a-9ea3-41a5-972f-d723e846d4d9.parquet")
 display(df_recebimento)
+#dbfs:/mnt/financeiro/bronze/RECEBIMENTO.parquet
 
 # COMMAND ----------
 
@@ -16,7 +17,7 @@ print(df_recebimento.columns)
 # COMMAND ----------
 
 # DBTITLE 1,Tratando os nulos com for e fillna
-colunas = ['NUMERO_NF', 'VALOR_PARCELA_RECEBIDA', 'DATA_RECEBIMENTO', 'DATA_RECEBIMENTO_EFETUADO', 'DATA_PROCESSAMENTO']
+colunas = ['NUMERO_NF', 'DATA_RECEBIMENTO', 'DATA_RECEBIMENTO_EFETUADO', 'VALOR_PARCELA', 'VALOR_PARCELA_RECEBIDA', 'NUM_PARCELA', 'STATUS', 'DataCarga']
 
 for trocanulos in colunas:
     df_recebimento = df_recebimento\
@@ -45,7 +46,7 @@ df_recebimento.printSchema()
 
 # COMMAND ----------
 
-# DBTITLE 1,Salvar na camada Silver
+# DBTITLE 1,Salvar na camada Silver criando a pasta e o nome do arquivo
 df_recebimento.write.mode("overwrite").parquet("dbfs:/mnt/financeiro/Silver/recebimento_silver.parquet")
 
 # COMMAND ----------
